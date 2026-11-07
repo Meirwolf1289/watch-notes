@@ -1,0 +1,36 @@
+# xcodegen spec: `xcodegen generate` -> PocketWatch.xcodeproj (git-ignored, regenerate any time)
+name: PocketWatch
+options:
+  bundleIdPrefix: com.wolfai
+  deploymentTarget:
+    watchOS: "10.0"
+  xcodeVersion: "26.0"
+configFiles:
+  Debug: Secrets.xcconfig
+  Release: Secrets.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "0.1"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: $(POCKET_TEAM_ID)
+targets:
+  PocketWatch:
+    type: application
+    platform: watchOS
+    sources: [PocketWatch]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.wolfai.pocketwatch
+        TARGETED_DEVICE_FAMILY: "4"
+    info:
+      path: PocketWatch/Info.plist
+      properties:
+        PocketKey: $(POCKET_SHARED_KEY)
+        PocketProjectRef: $(POCKET_PROJECT_REF)
+        WKApplication: true
+        WKWatchOnly: true
+        NSMicrophoneUsageDescription: Records your voice notes.
+        UIBackgroundModes: [audio]
+        CFBundleDisplayName: Pocket

@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.*
+supabase/.temp/
+supabase/.branches/
+*.xcuserstate
+xcuserdata/
+DerivedData/
+shortcut/*.shortcut
+Secrets.xcconfig
+*.xcodeproj
+PocketWatch/Info.plist
+build/
+reel/*.mp4
+reel/*.mov
+reel/*.plan.json
+__pycache__/
